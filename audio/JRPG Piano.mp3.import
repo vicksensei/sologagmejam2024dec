@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ncbcc25gxks4"
+path="res://.godot/imported/JRPG Piano.mp3-630b6e185c39160c3d25e2c3fb5e9ee4.mp3str"
+
+[deps]
+
+source_file="res://audio/JRPG Piano.mp3"
+dest_files=["res://.godot/imported/JRPG Piano.mp3-630b6e185c39160c3d25e2c3fb5e9ee4.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

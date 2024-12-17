@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnua2ejd1llr5"]
+
+[ext_resource type="Script" path="res://Scripts/title.gd" id="1_dgo6s"]
+[ext_resource type="FontFile" uid="uid://blm3n76qjcpgy" path="res://Pixeled.ttf" id="2_b5b48"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eiwoa"]
+polygon = PackedVector2Array(0, 280, 1280, 280, 1280, 300, 0, 300)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucbl3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 30.0
+expand_margin_top = 10.0
+expand_margin_right = 30.0
+expand_margin_bottom = 10.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psrg3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 30.0
+expand_margin_top = 10.0
+expand_margin_right = 30.0
+expand_margin_bottom = 10.0
+anti_aliasing = false
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_dgo6s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Title of the Game"
+horizontal_alignment = 1
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CanvasLayer"]
+occluder = SubResource("OccluderPolygon2D_eiwoa")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b5b48")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ucbl3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ucbl3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_psrg3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ucbl3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ucbl3")
+text = "Start Game"

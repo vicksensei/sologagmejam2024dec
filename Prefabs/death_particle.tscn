@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://jocvkgs1tmg3"]
+
+[ext_resource type="Script" path="res://Scripts/death_particle.gd" id="1_7l3rr"]
+[ext_resource type="Texture2D" uid="uid://b38xycknjw7mv" path="res://Art/fractalPixel.png" id="1_55lam"]
+
+[sub_resource type="Animation" id="Animation_8f3vw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_o1j41"]
+resource_name = "destroyParticle"
+loop_mode = 1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 0, 5, 0, 6, 1, 6, 1, 7, 2, 7, 2, 8, 3, 8, 3, 9, 4, 9, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0fia"]
+_data = {
+"RESET": SubResource("Animation_8f3vw"),
+"destroyParticle": SubResource("Animation_o1j41")
+}
+
+[node name="DeathParticle" type="Node2D"]
+script = ExtResource("1_7l3rr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_g0fia")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+texture_filter = 1
+texture = ExtResource("1_55lam")
+hframes = 5
+vframes = 2

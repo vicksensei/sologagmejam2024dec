@@ -1,0 +1,173 @@
+[gd_scene load_steps=7 format=3 uid="uid://6qvc4rvh2hsu"]
+
+[ext_resource type="Texture2D" uid="uid://budlald6bcg58" path="res://Art/floor.png" id="1_0yf6l"]
+[ext_resource type="Script" path="res://Scripts/win_screen.gd" id="1_djm2y"]
+[ext_resource type="Texture2D" uid="uid://bqe6p5smrv8gr" path="res://Art/winsprites1bit.png" id="2_bidjc"]
+
+[sub_resource type="Animation" id="Animation_jtgpy"]
+resource_name = "WIN"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Fire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.633333, 1.03333, 1.33333, 1.66667, 2, 2.33333, 2.73333, 3.27759, 3.61092, 4.01092, 4.50879, 4.84213),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 0, 1, 2, 0, 1, 2, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/ice:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.30625, 0.639583, 1.0375, 1.3375, 1.67083, 2.00417, 2.33333, 2.73125, 3.26667, 3.6, 3.99792, 4.5, 4.83333, 5.69167),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Floor:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_848tw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Floor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Fire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/ice:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m7n7m"]
+_data = {
+"RESET": SubResource("Animation_848tw"),
+"WIN": SubResource("Animation_jtgpy")
+}
+
+[node name="WinScreen" type="Node2D"]
+script = ExtResource("1_djm2y")
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(297, 145)
+scale = Vector2(60, 60)
+texture = ExtResource("1_0yf6l")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(294, 146)
+scale = Vector2(3, 3)
+
+[node name="Fire" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(-10, 0)
+texture = ExtResource("2_bidjc")
+hframes = 7
+vframes = 2
+
+[node name="ice" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(10, 0)
+texture = ExtResource("2_bidjc")
+hframes = 7
+vframes = 2
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m7n7m")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_left = 215.0
+offset_top = 21.0
+offset_right = 361.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "Victory!"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 85.0
+offset_top = 184.0
+offset_right = 515.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "Thanks for Helping us!"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(48, 259)
+amount = 50
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 50.58
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(567, 76)
+amount = 50
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 50.58
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color = Color(0, 0, 0, 1)

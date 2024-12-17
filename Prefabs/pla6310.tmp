@@ -1,0 +1,188 @@
+[gd_scene load_steps=12 format=3 uid="uid://oj027weu75g6"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_0i5ts"]
+[ext_resource type="Texture2D" uid="uid://dflkc65412w40" path="res://Art/fireice2bitsheet.png" id="2_yc8bc"]
+[ext_resource type="PackedScene" uid="uid://dlljkhluagv25" path="res://Prefabs/particles.tscn" id="3_yl56e"]
+
+[sub_resource type="Animation" id="Animation_dusbd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UnderBody/Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_x6ivp"]
+resource_name = "fireIdle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../UnderBody/Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_5gyoe"]
+resource_name = "iceIdle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.333333, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_f6u1l"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UnderBody/Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.733333, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_s6mdy"]
+resource_name = "walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UnderBody/Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 3, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4d3t"]
+_data = {
+"RESET": SubResource("Animation_dusbd"),
+"fireIdle": SubResource("Animation_x6ivp"),
+"iceIdle": SubResource("Animation_5gyoe"),
+"idle": SubResource("Animation_f6u1l"),
+"walking": SubResource("Animation_s6mdy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk46u"]
+size = Vector2(9, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah7qh"]
+size = Vector2(9, 8)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_0i5ts")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../SurfaceBody")
+libraries = {
+"": SubResource("AnimationLibrary_c4d3t")
+}
+
+[node name="SurfaceBody" type="CharacterBody2D" parent="." groups=["Player"]]
+position = Vector2(0, -16)
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SurfaceBody"]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_gk46u")
+
+[node name="Sprite2D" type="Sprite2D" parent="SurfaceBody"]
+texture_filter = 1
+texture = ExtResource("2_yc8bc")
+hframes = 7
+vframes = 2
+frame = 7
+
+[node name="IceCoyoteTimer" type="Timer" parent="SurfaceBody"]
+wait_time = 0.15
+one_shot = true
+
+[node name="UnderBody" type="CharacterBody2D" parent="." groups=["Player"]]
+position = Vector2(0, 16)
+collision_layer = 5
+collision_mask = 5
+
+[node name="FireCoyoteTimer" type="Timer" parent="UnderBody"]
+wait_time = 0.15
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnderBody"]
+position = Vector2(0.5, -4)
+shape = SubResource("RectangleShape2D_ah7qh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="UnderBody"]
+texture_filter = 1
+texture = ExtResource("2_yc8bc")
+flip_v = true
+hframes = 7
+vframes = 2
+
+[node name="particles" parent="UnderBody/Sprite2D2" instance=ExtResource("3_yl56e")]

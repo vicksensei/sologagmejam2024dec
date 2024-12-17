@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cru3c5sw6k8kg"]
+
+[ext_resource type="PackedScene" uid="uid://dlljkhluagv25" path="res://Prefabs/particles.tscn" id="1_cic6g"]
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_edp8j"]
+[ext_resource type="Texture2D" uid="uid://cqbxqasdgos31" path="res://Art/tileset2bit.png" id="2_x7gb2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b14vt"]
+
+[node name="FireBullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_edp8j")
+
+[node name="particles" parent="." instance=ExtResource("1_cic6g")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b14vt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("2_x7gb2")
+hframes = 5
+vframes = 5
+frame = 22
