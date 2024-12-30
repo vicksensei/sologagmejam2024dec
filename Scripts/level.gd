@@ -1,4 +1,5 @@
 extends Node
+class_name level
 @export var coins: int
 @export var black_door: Vector2i
 @export var white_door: Vector2i
@@ -6,6 +7,7 @@ extends Node
 @onready var tile_map_layer = $TileMapLayer
 
 func _ready():
+	Global.isWinScreen = false
 	Global.canEnterDoor = false
 	Global.fireCleared = false
 	Global.iceCleared = false

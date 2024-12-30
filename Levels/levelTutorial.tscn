@@ -81,14 +81,16 @@ theme_override_font_sizes/font_size = 9
 text = "We can only move together...."
 
 [node name="Label2" type="Label" parent="TileMapLayer"]
-offset_left = 248.0
-offset_top = 160.0
-offset_right = 636.0
-offset_bottom = 206.0
+offset_left = 377.0
+offset_top = 111.0
+offset_right = 646.0
+offset_bottom = 166.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -11
 theme_override_fonts/font = ExtResource("5_0a02s")
 theme_override_font_sizes/font_size = 9
-text = "We need the coins to open the door!"
+text = "We need the coins 
+to open the door!"
 
 [node name="Player" parent="." instance=ExtResource("6_xt55c")]
 z_index = 3

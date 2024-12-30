@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmx2nlnwfmq4o"]
+
+[ext_resource type="Script" path="res://scripts/mobile_controls.gd" id="1_811ik"]
+[ext_resource type="Texture2D" uid="uid://cn7ehbb2pgvt1" path="res://Art/ButtonShapeOutlined1bit.png" id="1_d7hbv"]
+[ext_resource type="Texture2D" uid="uid://tvkq7vqfdx1e" path="res://Art/1bitButtonShapeDark.png" id="2_nywwm"]
+[ext_resource type="Texture2D" uid="uid://cjlrd1v5oyr1t" path="res://Art/1bitLeftArrow.png" id="2_txd10"]
+[ext_resource type="Texture2D" uid="uid://c7sshxk1qrpt" path="res://Art/1bitpause.png" id="3_6nj8n"]
+[ext_resource type="Texture2D" uid="uid://up8pbse8gbgn" path="res://Art/1bitbullet.png" id="3_ludn0"]
+[ext_resource type="Texture2D" uid="uid://dn5mxqq4gencc" path="res://Art/1bitskull.png" id="4_k1w43"]
+
+[node name="Mobile Controls" type="CanvasLayer"]
+script = ExtResource("1_811ik")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 751.0
+offset_bottom = 337.0
+mouse_filter = 2
+
+[node name="Left" type="TouchScreenButton" parent="Control"]
+texture_filter = 1
+position = Vector2(10, 220)
+texture_normal = ExtResource("1_d7hbv")
+texture_pressed = ExtResource("2_nywwm")
+action = "move_left"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Left"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_txd10")
+
+[node name="Right" type="TouchScreenButton" parent="Control"]
+texture_filter = 1
+position = Vector2(70, 220)
+texture_normal = ExtResource("1_d7hbv")
+texture_pressed = ExtResource("2_nywwm")
+action = "move_right"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Right"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_txd10")
+flip_h = true
+
+[node name="Pause" type="TouchScreenButton" parent="Control"]
+texture_filter = 1
+position = Vector2(10, 10)
+texture_normal = ExtResource("1_d7hbv")
+texture_pressed = ExtResource("2_nywwm")
+action = "Pause"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Pause"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6nj8n")
+
+[node name="Jump" type="TouchScreenButton" parent="Control"]
+texture_filter = 1
+position = Vector2(590, 220)
+texture_normal = ExtResource("1_d7hbv")
+texture_pressed = ExtResource("2_nywwm")
+action = "jump"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Jump"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(16, 16)
+texture = ExtResource("2_txd10")
+
+[node name="Shoot" type="TouchScreenButton" parent="Control"]
+visible = false
+texture_filter = 1
+position = Vector2(530, 220)
+texture_normal = ExtResource("1_d7hbv")
+texture_pressed = ExtResource("2_nywwm")
+action = "Shoot"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Shoot"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ludn0")
+
+[node name="Reset" type="TouchScreenButton" parent="Control"]
+texture_filter = 1
+position = Vector2(590, 10)
+texture_normal = ExtResource("1_d7hbv")
+texture_pressed = ExtResource("2_nywwm")
+action = "Reset"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Reset"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_k1w43")
+flip_h = true

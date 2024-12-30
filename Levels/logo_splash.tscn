@@ -32,8 +32,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="logo" type="TextureRect" parent="CanvasLayer/ColorRect/CenterContainer"]
+texture_filter = 2
 material = SubResource("ShaderMaterial_exm1u")
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 texture = ExtResource("2_dtjr2")
 expand_mode = 2

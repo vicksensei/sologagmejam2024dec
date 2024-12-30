@@ -1,8 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://6qvc4rvh2hsu"]
+[gd_scene load_steps=8 format=3 uid="uid://6qvc4rvh2hsu"]
 
 [ext_resource type="Texture2D" uid="uid://budlald6bcg58" path="res://Art/floor.png" id="1_0yf6l"]
 [ext_resource type="Script" path="res://Scripts/win_screen.gd" id="1_djm2y"]
 [ext_resource type="Texture2D" uid="uid://bqe6p5smrv8gr" path="res://Art/winsprites1bit.png" id="2_bidjc"]
+[ext_resource type="PackedScene" uid="uid://bptqylugtd2cc" path="res://Levels/hof_entry.tscn" id="4_kvn41"]
+
+[sub_resource type="Animation" id="Animation_848tw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Floor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Fire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/ice:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
 
 [sub_resource type="Animation" id="Animation_jtgpy"]
 resource_name = "WIN"
@@ -43,45 +83,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 6.28319]
-}
-
-[sub_resource type="Animation" id="Animation_848tw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Floor:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Fire:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/ice:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m7n7m"]
@@ -171,3 +172,7 @@ initial_velocity_max = 100.0
 scale_amount_min = 3.0
 scale_amount_max = 6.0
 color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HOFEntry" parent="CanvasLayer" instance=ExtResource("4_kvn41")]

@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmd4iu3sb33kh"]
+
+[ext_resource type="Script" path="res://hs_display.gd" id="1_3my2f"]
+[ext_resource type="FontFile" uid="uid://blm3n76qjcpgy" path="res://Pixeled.ttf" id="2_dn0jn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtmrp"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rgs8"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5pc7"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yildy"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="HSDisplay" type="CanvasLayer"]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+script = ExtResource("1_3my2f")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mtmrp")
+
+[node name="Panel2" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 184.0
+offset_top = 134.0
+offset_right = -160.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6rgs8")
+
+[node name="Label" type="RichTextLabel" parent="Panel2"]
+custom_minimum_size = Vector2(500, 450)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/table_v_separation = -2
+theme_override_constants/table_h_separation = 30
+theme_override_fonts/normal_font = ExtResource("2_dn0jn")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[fill][table=3][cell]Name[/cell][cell]Deaths[/cell][cell]Time[/cell][cell]test[/cell][cell]1[/cell][cell]10[/cell][cell]test[/cell][cell]2[/cell][cell]5[/cell][/table][/fill]"
+fit_content = true
+
+[node name="Label2" type="Label" parent="."]
+offset_top = -25.0
+offset_right = 1280.0
+offset_bottom = 77.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_dn0jn")
+theme_override_font_sizes/font_size = 36
+text = "Hall of Fame"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 490.0
+offset_top = 70.0
+offset_right = 794.0
+offset_bottom = 120.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Top10" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dn0jn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h5pc7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yildy")
+text = "Top 10
+"
+
+[node name="Top100" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dn0jn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h5pc7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yildy")
+text = "Top 100
+"

@@ -7,5 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 func onPlayerEnter(_body):
-	SignalBus.die.emit()
+	if not Global.currentState == Global.gameState.Dead: 
+		Global.currentState = Global.gameState.Dead
+		SignalBus.die.emit()
 	

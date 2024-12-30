@@ -12,7 +12,7 @@ const death_particle = preload("res://Prefabs/death_particle.tscn")
 @onready var ice_coyote_timer = $SurfaceBody/IceCoyoteTimer
 @onready var fire_coyote_timer = $UnderBody/FireCoyoteTimer
 
-const SPEED = 150.0
+const SPEED = 125.0
 const JUMP_VELOCITY = -250.0
 const JUMP_VELOCITY_INVERT = JUMP_VELOCITY *-1
 
@@ -25,11 +25,11 @@ var canFireJump = false
 var canIceJump = false
 
 func _ready():
-	SignalBus.die.connect(onDead)	
+	SignalBus.die.connect(onRestart)	
 	animation_player.play("idle")
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("Pause"):
 		onPause()
 	if Global.currentState == Global.gameState.Playing:
 		if not surface_body.is_on_floor() and Global.iceCleared == false:
@@ -109,27 +109,32 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("Reset"):
 			onRestart()
+			SignalBus.restart.emit()
 		#if Input.is_action_just_pressed("ui_focus_next"):
 			#SignalBus.win.emit()	
 			
-func onDead():	
-	SignalBus.dieSound.emit()
-	Global.currentState = Global.gameState.Dead
-	surface_sprite.visible = false
-	under_sprite.visible = false
-	doDeathAnimation()
-	await get_tree().create_timer(1.5).timeout
-	SignalBus.changeScene.emit(Global.TITLE)
-	pass
-	
+#func onDead():	
+	#SignalBus.dieSound.emit()
+	#Global.currentState = Global.gameState.Dead
+	#surface_sprite.visible = false
+	#under_sprite.visible = false
+	#doDeathAnimation()
+	#await get_tree().create_timer(1.5).timeout
+	#SignalBus.changeScene.emit(Global.TITLE)
+	#pass
+	#
 func onRestart():
+	Global.deaths +=1
+	Global.player_data.currentDeaths +=1
 	SignalBus.dieSound.emit()
 	Global.currentState = Global.gameState.Dead
 	surface_sprite.visible = false
 	under_sprite.visible = false
 	doDeathAnimation()
 	await get_tree().create_timer(1.5).timeout
+	SignalBus.saveGame.emit()
 	SignalBus.changeScene.emit(Global.levels[Global.currentLevel])
+	#print(Global.deaths)
 	
 func doDeathAnimation():
 	spawn_death_bloom(surface_body.global_position)
@@ -142,7 +147,6 @@ func doDeathAnimation():
 	spawn_death_bloom(under_body.global_position)
 	await get_tree().create_timer(1.5).timeout
 	
-
 func spawn_death_bloom(originalPos):
 	spawn_death_particle(Vector2(1,1), originalPos)
 	spawn_death_particle(Vector2(1,-1), originalPos)	
@@ -152,7 +156,7 @@ func spawn_death_bloom(originalPos):
 	spawn_death_particle(Vector2(-1,0), originalPos)
 	spawn_death_particle(Vector2(0,-1), originalPos)
 	spawn_death_particle(Vector2(0,1), originalPos)
-
+	
 func spawn_death_particle(direction, originalPos):
 	var newParticle = death_particle.instantiate()
 	Global.mainScene.current_level.add_child(newParticle)

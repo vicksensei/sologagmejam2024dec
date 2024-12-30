@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://plkpcxq726cc"]
+[gd_scene load_steps=14 format=3 uid="uid://plkpcxq726cc"]
 
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_l8miv"]
 [ext_resource type="FontFile" uid="uid://blm3n76qjcpgy" path="res://Pixeled.ttf" id="1_sb1qo"]
 [ext_resource type="Texture2D" uid="uid://bstdkgpimak3b" path="res://Art/longkeys1bit.png" id="2_ee7u5"]
 [ext_resource type="Texture2D" uid="uid://0ophi323ughu" path="res://Art/1bitkeys.png" id="3_m21s8"]
@@ -70,6 +71,7 @@ offset_bottom = -440.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.968254, 1)
+script = ExtResource("1_l8miv")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -260,3 +262,18 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ol41v")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ol41v")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p8te8")
 text = "Exit to Main Menu"
+
+[node name="Mobile" type="Label" parent="Panel"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 27.0
+offset_right = 298.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_sb1qo")
+theme_override_font_sizes/font_size = 10
+text = "Tap the screen 
+for mobile controls"
+horizontal_alignment = 1

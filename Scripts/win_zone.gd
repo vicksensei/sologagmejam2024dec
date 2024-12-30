@@ -11,6 +11,7 @@ func onEnterWin(body :CharacterBody2D):
 		if body.name == "SurfaceBody":
 			Global.iceCleared = true
 		elif body.name == "UnderBody":
+			print("fire entered door")
 			Global.fireCleared = true
 		if Global.iceCleared and Global.fireCleared:
 			SignalBus.win.emit()	

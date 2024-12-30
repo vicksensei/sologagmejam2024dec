@@ -74,10 +74,10 @@ theme_override_font_sizes/font_size = 9
 text = "And then things got more difficult...."
 
 [node name="Label2" type="Label" parent="TileMapLayer"]
-offset_left = 393.0
-offset_top = 164.0
-offset_right = 781.0
-offset_bottom = 210.0
+offset_left = 287.0
+offset_top = 163.0
+offset_right = 675.0
+offset_bottom = 209.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_j4yy7")
 theme_override_font_sizes/font_size = 9

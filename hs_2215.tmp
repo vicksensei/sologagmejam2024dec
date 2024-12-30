@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmd4iu3sb33kh"]
+
+[ext_resource type="Script" path="res://hs_display.gd" id="1_3my2f"]
+
+[node name="HSDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3my2f")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 111.0
+offset_right = 79.0
+offset_bottom = 134.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 54.0
+offset_right = 120.0
+offset_bottom = 85.0
+text = "GetScores
+"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

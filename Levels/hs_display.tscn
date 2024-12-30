@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmd4iu3sb33kh"]
+
+[ext_resource type="Script" path="res://Scripts/hs_display.gd" id="1_3my2f"]
+[ext_resource type="FontFile" uid="uid://blm3n76qjcpgy" path="res://Pixeled.ttf" id="2_dn0jn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwypx"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="HSDisplay" type="CanvasLayer"]
+script = ExtResource("1_3my2f")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 170.0
+offset_right = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 28.0
+offset_right = 270.0
+offset_bottom = 267.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect2/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="Label" type="RichTextLabel" parent="ColorRect2/ColorRect/ScrollContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/table_v_separation = -2
+theme_override_constants/table_h_separation = 30
+theme_override_fonts/normal_font = ExtResource("2_dn0jn")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_cwypx")
+bbcode_enabled = true
+text = "   Loading scores..."
+fit_content = true
+autowrap_mode = 0
+
+[node name="HallOfFameText" type="Label" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -12.0
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_dn0jn")
+theme_override_font_sizes/font_size = 16
+text = "Hall of Fame"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

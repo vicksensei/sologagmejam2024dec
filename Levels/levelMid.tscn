@@ -77,10 +77,10 @@ theme_override_font_sizes/font_size = 9
 text = "Are those... ofset?"
 
 [node name="Label2" type="Label" parent="TileMapLayer"]
-offset_left = 360.0
-offset_top = 145.0
-offset_right = 637.0
-offset_bottom = 191.0
+offset_left = 184.0
+offset_top = 164.0
+offset_right = 461.0
+offset_bottom = 210.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_12rak")
 theme_override_font_sizes/font_size = 9

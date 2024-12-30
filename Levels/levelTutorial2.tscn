@@ -86,10 +86,10 @@ text = "If we find weapons
 We can shoot together...."
 
 [node name="Label2" type="Label" parent="TileMapLayer"]
-offset_left = 248.0
-offset_top = 160.0
-offset_right = 527.0
-offset_bottom = 192.0
+offset_left = 242.0
+offset_top = 121.0
+offset_right = 521.0
+offset_bottom = 153.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_w8nde")
 theme_override_font_sizes/font_size = 9

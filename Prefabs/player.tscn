@@ -170,10 +170,6 @@ position = Vector2(0, 16)
 collision_layer = 5
 collision_mask = 5
 
-[node name="FireCoyoteTimer" type="Timer" parent="UnderBody"]
-wait_time = 0.15
-one_shot = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UnderBody"]
 position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_ah7qh")
@@ -186,3 +182,7 @@ hframes = 7
 vframes = 2
 
 [node name="particles" parent="UnderBody/Sprite2D2" instance=ExtResource("3_yl56e")]
+
+[node name="FireCoyoteTimer" type="Timer" parent="UnderBody"]
+wait_time = 0.15
+one_shot = true
