@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://dy4fjgsa86q52"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_217yf"]
-[ext_resource type="Script" path="res://Scripts/HUDui.gd" id="2_w4sut"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_217yf"]
+[ext_resource type="Script" path="res://scripts/HUDui.gd" id="2_w4sut"]
 [ext_resource type="FontFile" uid="uid://blm3n76qjcpgy" path="res://Pixeled.ttf" id="3_qtxfx"]
 [ext_resource type="PackedScene" uid="uid://plkpcxq726cc" path="res://Prefabs/pause.tscn" id="4_0h0yt"]
-[ext_resource type="Script" path="res://Scripts/audio.gd" id="5_48evs"]
+[ext_resource type="Script" path="res://scripts/audio.gd" id="5_48evs"]
 [ext_resource type="PackedScene" uid="uid://dmx2nlnwfmq4o" path="res://Levels/mobile_controls.tscn" id="5_tb6qv"]
 [ext_resource type="Script" path="res://scripts/save_load.gd" id="7_j0ixd"]
 
@@ -124,16 +124,30 @@ text = "Deaths: 0"
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_0h0yt")]
 visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 180.0
-offset_top = 70.0
-offset_right = 180.0
-offset_bottom = 70.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -62.0
+offset_right = -156.0
+offset_bottom = -62.0
+
+[node name="consolePanel" type="Panel" parent="UI"]
+visible = false
+offset_top = 194.0
+offset_right = 637.0
+offset_bottom = 279.0
+
+[node name="Console" type="Label" parent="UI/consolePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 
 [node name="CurrentLevel" type="Node" parent="."]
 

@@ -12,7 +12,8 @@ var levelhasUI = false
 
 var currentLevel = 0
 var mainScene:main
-@onready var rootScene = $"."
+var isMobile = false
+#@onready var rootScene = $"."
 
 const LOGO_SPLASH = preload("res://Levels/logo_splash.tscn")
 const TITLE = preload("res://Levels/titleweb.tscn")
@@ -62,6 +63,10 @@ func _ready():
 	currentState = gameState.Starting
 	SignalBus.win.connect(onWin)
 	SignalBus.erase.connect(onErase)
+	if OS.has_feature("mobile") or \
+	OS.has_feature("web_android") or \
+	OS.has_feature("web_ios"):
+		isMobile = true
 #
 #func onDead():
 	#currentLevel = 0
@@ -82,3 +87,6 @@ func onErase():
 	deaths = 0
 	player_data.currentRunClear = currentLevel
 	player_data.currentDeaths = deaths
+
+func consoleLog(text):
+	SignalBus.clog.emit(text)

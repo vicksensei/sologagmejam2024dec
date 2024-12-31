@@ -24,7 +24,7 @@ func _ready():
 	o_slabel.text = ""
 	if OS.has_feature("web"):
 		o_slabel.text += "Web \n"
-	if OS.has_feature("mobile"):
+	if Global.isMobile:
 		o_slabel.text += "Mobile \n"
 	if OS.has_feature("web_ios"):
 		o_slabel.text += "iOS \n"

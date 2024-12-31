@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=4 uid="uid://caibjjla32ech"]
 
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_7tb60"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_7tb60"]
 [ext_resource type="Texture2D" uid="uid://cqbxqasdgos31" path="res://Art/tileset2bit.png" id="2_bj1kl"]
 [ext_resource type="FontFile" uid="uid://blm3n76qjcpgy" path="res://Pixeled.ttf" id="3_j4yy7"]
-[ext_resource type="Script" path="res://Scripts/Warningtimer.gd" id="4_7kauj"]
+[ext_resource type="Script" path="res://scripts/Warningtimer.gd" id="4_7kauj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a46jc"]
 texture = ExtResource("2_bj1kl")

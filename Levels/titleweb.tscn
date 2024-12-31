@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dqnvi3u55w5lr"]
 
-[ext_resource type="Script" path="res://Scripts/title.gd" id="1_alpk1"]
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_alpk1"]
 [ext_resource type="PackedScene" uid="uid://cmd4iu3sb33kh" path="res://Levels/hs_display.tscn" id="2_0nnmq"]
 [ext_resource type="FontFile" uid="uid://blm3n76qjcpgy" path="res://Pixeled.ttf" id="2_l8oha"]
 
@@ -198,6 +198,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_a2gyr")
 text = "Back"
 
 [node name="OSlabel" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 456.0
 offset_top = 188.0
 offset_right = 624.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://oj027weu75g6"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_0i5ts"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_0i5ts"]
 [ext_resource type="Texture2D" uid="uid://dflkc65412w40" path="res://Art/fireice2bitsheet.png" id="2_yc8bc"]
 [ext_resource type="PackedScene" uid="uid://dlljkhluagv25" path="res://Prefabs/particles.tscn" id="3_yl56e"]
 

@@ -10,16 +10,16 @@ extends Control
 
 func _ready():
 	button.pressed.connect(onExitToMenu)
-	if OS.has_feature("mobile"):
+	if Global.isMobile:
 		pause.visible=false
 		fire.visible=false
 		restart.visible=false
 		move.visible=false
 		jump.visible=false
 		mobile.visible = true
-		
 
 func onExitToMenu():
 	print("exit Pressed")
+	Global.consoleLog("Exit Pressed")
 	visible = false
 	Global.mainScene.setScene(Global.TITLE, false)

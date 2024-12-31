@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bv6l74kw1hgf"]
 
-[ext_resource type="Script" path="res://Scripts/bat.gd" id="1_et3yk"]
+[ext_resource type="Script" path="res://scripts/bat.gd" id="1_et3yk"]
 [ext_resource type="Texture2D" uid="uid://cri858xyfx5xu" path="res://Art/1bitEnemy.png" id="2_2u3uq"]
 [ext_resource type="PackedScene" uid="uid://6i24g1pvddur" path="res://Prefabs/death_zone.tscn" id="3_uo6ve"]
 

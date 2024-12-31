@@ -8,13 +8,14 @@ extends CanvasLayer
 
 @onready var control = $Control
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#SignalBus.changeScene.connect()
 	SignalBus.shotUpdate.connect(updateShootButton)
 	SignalBus.powerPickup.connect(updateShootButton)
 	SignalBus.levelStart.connect(hideControls)
+
+	
 	pass # Replace with function body.
 
 
@@ -23,8 +24,8 @@ func _process(delta):
 	pass
 #
 func _input(event):
-	if event is InputEventMouseButton and Global.levelhasUI:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+	if  event is InputEventMouseButton and Global.levelhasUI:
+		if event.is_pressed():
 			if not Rect2(left.position, left.texture_normal.get_size()).has_point(event.position) \
 			and not Rect2(right.position, right.texture_normal.get_size()).has_point(event.position)\
 			and not Rect2(pause.position, pause.texture_normal.get_size()).has_point(event.position)\
@@ -34,7 +35,7 @@ func _input(event):
 				updateUI()
 
 func updateUI():
-	if OS.has_feature("mobile"):
+	if Global.isMobile:
 		control.visible = !control.visible
 func hideControls():
 	control.visible = false

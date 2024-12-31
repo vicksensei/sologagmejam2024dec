@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://xd02bsmj8j3"]
 
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_groh1"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_groh1"]
 [ext_resource type="Texture2D" uid="uid://cqbxqasdgos31" path="res://Art/tileset2bit.png" id="2_jakhh"]
 [ext_resource type="PackedScene" uid="uid://oj027weu75g6" path="res://Prefabs/player.tscn" id="3_nisty"]
 

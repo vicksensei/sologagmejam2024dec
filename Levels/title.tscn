@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dnua2ejd1llr5"]
 
-[ext_resource type="Script" path="res://Scripts/title.gd" id="1_dgo6s"]
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_dgo6s"]
 [ext_resource type="FontFile" uid="uid://blm3n76qjcpgy" path="res://Pixeled.ttf" id="2_b5b48"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eiwoa"]

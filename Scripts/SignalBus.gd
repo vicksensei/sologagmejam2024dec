@@ -30,3 +30,5 @@ signal dieSound
 signal hover
 
 signal victory
+
+signal clog(text)

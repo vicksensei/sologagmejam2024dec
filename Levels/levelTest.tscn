@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://dgafgotyfnlye"]
 
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_j8yiv"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_j8yiv"]
 [ext_resource type="Texture2D" uid="uid://cqbxqasdgos31" path="res://Art/tileset2bit.png" id="2_s3bt6"]
 [ext_resource type="PackedScene" uid="uid://ch0wdrhawjx4g" path="res://Prefabs/win_zone.tscn" id="3_657mm"]
 [ext_resource type="PackedScene" uid="uid://6i24g1pvddur" path="res://Prefabs/death_zone.tscn" id="5_bqp1i"]

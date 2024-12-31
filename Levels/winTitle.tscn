@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d4hwcydhxsdmo"]
 
-[ext_resource type="Script" path="res://Scripts/title.gd" id="1_rjq7c"]
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_rjq7c"]
 [ext_resource type="FontFile" uid="uid://blm3n76qjcpgy" path="res://Pixeled.ttf" id="2_k1768"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xlv00"]

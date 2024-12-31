@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://jocvkgs1tmg3"]
 
-[ext_resource type="Script" path="res://Scripts/death_particle.gd" id="1_7l3rr"]
+[ext_resource type="Script" path="res://scripts/death_particle.gd" id="1_7l3rr"]
 [ext_resource type="Texture2D" uid="uid://b38xycknjw7mv" path="res://Art/fractalPixel.png" id="1_55lam"]
 
 [sub_resource type="Animation" id="Animation_8f3vw"]
